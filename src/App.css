@@ -21,6 +21,18 @@ body {
   }
 }
 
+.MuiStepLabel-iconContainer {
+  display: none !important;
+}
+
+.MuiStepConnector-lineVertical {
+  visibility: hidden !important;
+}
+
+.MuiExpansionPanel-rounded {
+  box-shadow: none !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
