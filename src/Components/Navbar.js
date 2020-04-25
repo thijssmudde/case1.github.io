@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
@@ -60,10 +61,9 @@ const Navbar = ({children}) => {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const location = useLocation()
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen)
 
   const primaryLinks = [
     {
@@ -107,13 +107,15 @@ const Navbar = ({children}) => {
     }
   ]
 
+  const title = 'Think Tank: How to increase public support for the transition to clean energy'
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
         {primaryLinks.map((link, index) => <Styled._NavLink key={link.id} to={link.path}>
-          <ListItem button>
+          <ListItem button selected={location.pathname === link.path}>
             <ListItemIcon>{link.icon}</ListItemIcon>
             <ListItemText primary={link.text} />
           </ListItem>
@@ -122,7 +124,7 @@ const Navbar = ({children}) => {
       <Divider />
       <List>
         {secondaryLinks.map((link, index) => <Styled._NavLink key={link.id} to={link.path}>
-          <ListItem button>
+          <ListItem button selected={location.pathname === link.path}>
             <ListItemIcon>{link.icon}</ListItemIcon>
             <ListItemText primary={link.text} />
           </ListItem>
@@ -144,7 +146,7 @@ const Navbar = ({children}) => {
           <MenuIcon />
         </IconButton>
         <Typography variant='h6' noWrap>
-          Responsive drawer
+          {title}
         </Typography>
       </Toolbar>
     </AppBar>

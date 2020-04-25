@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
 const Landing = () => <div>
-  <Typography paragraph>
+  <Typography variant='h5' className='mb-4' gutterBottom>
     Conclusion
   </Typography>
   <Typography paragraph>
